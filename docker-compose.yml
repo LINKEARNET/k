@@ -6,7 +6,7 @@ nginx-proxy:
     - "443:443"
   volumes:
     - /var/run/docker.sock:/tmp/docker.sock:ro
-    - /root/k/certs:/etc/nginx/certs:ro
+    - ./certs:/etc/nginx/certs:ro
     - /etc/nginx/vhost.d
     - /usr/share/nginx/html
   labels:
@@ -16,7 +16,7 @@ letsencrypt:
   image: jrcs/letsencrypt-nginx-proxy-companion
   restart: always 
   volumes:
-    - /root/k/certs/:/etc/nginx/certs:rw
+    - ./certs/:/etc/nginx/certs:rw
     - /var/run/docker.sock:/var/run/docker.sock:ro
   volumes_from:
     - nginx-proxy:rw
@@ -27,7 +27,7 @@ k_site:
   expose:
     - "80"
   volumes:
-    - /root/k/www/k_site:/usr/share/nginx/html:ro
+    - ./www/k_site:/usr/share/nginx/html:ro
   environment:
     - VIRTUAL_HOST=www.linkear.net, linkear.net
     - LETSENCRYPT_HOST=www.linkear.net, linkear.net
