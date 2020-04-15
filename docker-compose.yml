@@ -21,13 +21,13 @@ letsencrypt:
   volumes_from:
     - nginx-proxy:rw
 
-k_site:
+linkear.net:
   image: nginx 
   restart: always
   expose:
     - "80"
   volumes:
-    - ./www/k_site:/usr/share/nginx/html:ro
+    - ./www/linkear.net:/usr/share/nginx/html:ro
   environment:
     - VIRTUAL_HOST=www.linkear.net, linkear.net
     - LETSENCRYPT_HOST=www.linkear.net, linkear.net
