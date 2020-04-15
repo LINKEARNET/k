@@ -1,5 +1,6 @@
 # k
-k server information 
 
-I am using docker-compose technolgy with digital-ocean droplet
+In this branch I created the server with a simple data,
+include only the functionality of reverse proxy server
+only one site called linkear.net
 
